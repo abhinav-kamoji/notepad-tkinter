@@ -10,25 +10,19 @@ class Notepad:
         self.__root.title("Untitled - Notepad")
         self.__root.geometry("800x600")
         
-        # Create Text Area
         self.__thisTextArea = Text(self.__root, wrap=WORD, font=("Consolas", 12))
         self.__thisTextArea.pack(expand=True, fill=BOTH)
         
-        # Configure grid weights (removed the conflicting grid call)
         self.__root.grid_rowconfigure(0, weight=1)
         self.__root.grid_columnconfigure(0, weight=1)
         
-        # Initialize file variable
         self.__file = None
         
-        # Create Menu Bar
         self.__createMenuBar()
         
     def __createMenuBar(self):
-        # Create menu bar
         self.__thisMenuBar = Menu(self.__root)
-        
-        # File Menu
+
         self.__thisFileMenu = Menu(self.__thisMenuBar, tearoff=0)
         self.__thisFileMenu.add_command(label="New", command=self.__newFile)
         self.__thisFileMenu.add_command(label="Open", command=self.__openFile)
@@ -37,22 +31,18 @@ class Notepad:
         self.__thisFileMenu.add_command(label="Exit", command=self.__quitApplication)
         self.__thisMenuBar.add_cascade(label="File", menu=self.__thisFileMenu)
         
-        # Edit Menu
         self.__thisEditMenu = Menu(self.__thisMenuBar, tearoff=0)
         self.__thisEditMenu.add_command(label="Cut", command=self.__cut)
         self.__thisEditMenu.add_command(label="Copy", command=self.__copy)
         self.__thisEditMenu.add_command(label="Paste", command=self.__paste)
         self.__thisMenuBar.add_cascade(label="Edit", menu=self.__thisEditMenu)
         
-        # Help Menu
         self.__thisHelpMenu = Menu(self.__thisMenuBar, tearoff=0)
         self.__thisHelpMenu.add_command(label="About Notepad", command=self.__showAbout)
         self.__thisMenuBar.add_cascade(label="Help", menu=self.__thisHelpMenu)
         
-        # Attach menu bar to root
         self.__root.config(menu=self.__thisMenuBar)
     
-    # Menu Functions
     def __quitApplication(self):
         self.__root.destroy()
     
@@ -93,7 +83,6 @@ class Notepad:
     def __paste(self):
         self.__thisTextArea.event_generate("<<Paste>>")
 
-# Run the application
 if __name__ == "__main__":
     root = Tk()
     app = Notepad(root)
