@@ -17,6 +17,7 @@ class Notepad:
         self.__root.grid_columnconfigure(0, weight=1)
         
         self.__file = None
+        self.__dark_mode = False 
         
         self.__createMenuBar()
         
@@ -37,10 +38,13 @@ class Notepad:
         self.__thisEditMenu.add_command(label="Paste", command=self.__paste)
         self.__thisMenuBar.add_cascade(label="Edit", menu=self.__thisEditMenu)
         
+        self.__thisViewMenu = Menu(self.__thisMenuBar, tearoff=0)
+        self.__thisViewMenu.add_command(label="Toggle Dark Mode", command=self.__darkToggle)
+        self.__thisMenuBar.add_cascade(label="View", menu=self.__thisViewMenu)
+        
         self.__thisHelpMenu = Menu(self.__thisMenuBar, tearoff=0)
         self.__thisHelpMenu.add_command(label="About Notepad", command=self.__showAbout)
         self.__thisMenuBar.add_cascade(label="Help", menu=self.__thisHelpMenu)
-        self.__thisDarkToggleMenu = Menu(self.__thisMenuBar, tearoff=0)
         
         self.__root.config(menu=self.__thisMenuBar)
     
@@ -83,6 +87,17 @@ class Notepad:
     
     def __paste(self):
         self.__thisTextArea.event_generate("<<Paste>>")
+    
+    def __darkToggle(self):
+        """Toggle between dark mode and light mode"""
+        if not self.__dark_mode:
+            self.__thisTextArea.config(bg="#2b2b2b", fg="white", insertbackground="white")
+            self.__root.config(bg="#1e1e1e")
+            self.__dark_mode = True
+        else:
+            self.__thisTextArea.config(bg="white", fg="black", insertbackground="black")
+            self.__root.config(bg="SystemButtonFace")
+            self.__dark_mode = False
 
 if __name__ == "__main__":
     root = Tk()
