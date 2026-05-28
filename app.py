@@ -40,6 +40,7 @@ class Notepad:
         self.__thisHelpMenu = Menu(self.__thisMenuBar, tearoff=0)
         self.__thisHelpMenu.add_command(label="About Notepad", command=self.__showAbout)
         self.__thisMenuBar.add_cascade(label="Help", menu=self.__thisHelpMenu)
+        self.__thisDarkToggleMenu = Menu(self.__thisMenuBar, tearoff=0)
         
         self.__root.config(menu=self.__thisMenuBar)
     
