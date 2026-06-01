@@ -3,3 +3,5 @@
 -Has a Menu with File, Edit, View and Help
 
 -included a Dark Mode
+
+-Text editing options 
