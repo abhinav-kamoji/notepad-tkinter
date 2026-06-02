@@ -35,6 +35,8 @@ class Notepad:
         self.__thisEditMenu.add_command(label="Cut", command=self.__cut)
         self.__thisEditMenu.add_command(label="Copy", command=self.__copy)
         self.__thisEditMenu.add_command(label="Paste", command=self.__paste)
+
+self.__thisFileMenu.add_separator()
         self.__thisMenuBar.add_cascade(label="Edit", menu=self.__thisEditMenu)
         
         self.__thisHelpMenu = Menu(self.__thisMenuBar, tearoff=0)
