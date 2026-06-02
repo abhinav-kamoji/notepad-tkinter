@@ -62,7 +62,7 @@ self.__thisFileMenu.add_separator()
                 self.__thisTextArea.insert(1.0, file.read())
     
     def __newFile(self):
-        self.__root.title("Untitled - Notepad")
+        self.__root.title("Unnamed - Notepad")
         self.__file = None
         self.__thisTextArea.delete(1.0, END)
     
