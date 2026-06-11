@@ -7,7 +7,7 @@ from tkinter.filedialog import *
 class Notepad:
     def __init__(self, root):
         self.__root = root
-        self.__root.title("Untitled - Notepad")
+        self.__root.title("New - Notepad")
         self.__root.geometry("800x600")
         
         self.__thisTextArea = Text(self.__root, wrap=WORD, font=("Consolas", 12))
