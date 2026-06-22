@@ -49,7 +49,7 @@ self.__thisFileMenu.add_separator()
         self.__root.destroy()
     
     def __showAbout(self):
-        showinfo("Notepad", "Simple Notepad using Python Tkinter")
+        showinfo("Notepad", " Notepad using Python Tkinter")
     
     def __openFile(self):
         self.__file = askopenfilename(defaultextension=".txt",
